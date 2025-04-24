@@ -7,6 +7,8 @@ import {
   RouterProvider,
 } from "@tanstack/react-router";
 
+import "./tailwind.css";
+
 // Add TanStack Router for Storybook
 // https://github.com/TanStack/router/discussions/952#discussioncomment-12689425
 export const RouterDecorator: Decorator = (Story) => {
