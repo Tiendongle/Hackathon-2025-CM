@@ -6,7 +6,7 @@ interface CardProps extends PropsWithChildren {
   className?: string;
 }
 
-const variantList = {
+export const variantList = {
   boldBorder: "border-2 rounded-lg border-boldBorder",
   lightBorder: "border-2 rounded-lg border-lightBorder",
 };
