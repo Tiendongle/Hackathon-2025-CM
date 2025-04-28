@@ -40,7 +40,7 @@ function BottomNavItems({ elements }: { elements: BottomNavDataProps }) {
   return elements.map((element) => {
     if (element.hasOwnProperty("group"))
       return (
-        <span className="w-1/2 mx-2 px-3 flex flex-row h-full items-center justify-between bg-gray-200 rounded-2xl shadow-inner shadow-slate-300">
+        <span className="w-1/2 mx-2 px-1 py-0.5 -my-2.5 flex flex-row h-full items-center justify-around bg-gray-200 rounded-2xl shadow-inner shadow-slate-300 hover:*:bg-white *:px-2 *:py-2 *:rounded-2xl">
           <BottomNavItems
             elements={(element as GroupedBottomNavItemProps).group}
           />
@@ -55,7 +55,7 @@ function BottomNavItem({ route, icon, name }: BottomNavItemProps) {
   return (
     <Link
       to={route}
-      className="mx-1 my-3 flex flex-col items-center hover:text-accent transition-colors hover:duration-150 duration-500"
+      className="mx-1 my-1 flex flex-col items-center hover:text-accent transition-colors hover:duration-150 duration-500"
     >
       <>
         <SvgIcon iconName={icon} />
