@@ -5,6 +5,11 @@
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: { colors: { boldBorder: "#2D3648", lightBolder: "#CBD2E0" } },
+    extend: {
+      fontFamily: {
+        sans: ['"Inclusive Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
+      },
+      colors: { boldBorder: "#2D3648", lightBolder: "#CBD2E0" },
+    },
   },
 };
