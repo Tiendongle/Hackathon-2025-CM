@@ -4,4 +4,7 @@
 // https://github.com/apptainer/apptainer.org/blob/master/tailwind.config.mjs
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: { colors: { boldBorder: "#2D3648", lightBolder: "#CBD2E0" } },
+  },
 };
