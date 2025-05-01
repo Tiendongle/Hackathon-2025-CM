@@ -22,6 +22,9 @@ import { Route as PostsIndexImport } from './routes/posts.index'
 import { Route as UsersUserIdImport } from './routes/users.$userId'
 import { Route as PostsPostIdImport } from './routes/posts.$postId'
 import { Route as PathlessLayoutNestedLayoutImport } from './routes/_pathlessLayout/_nested-layout'
+import { Route as RequestsLearnIndexImport } from './routes/requests.learn.index'
+import { Route as RequestMentorIndexImport } from './routes/request.mentor.index'
+import { Route as RequestsLearnPostIdImport } from './routes/requests.learn.$postId'
 import { Route as PostsPostIdDeepImport } from './routes/posts_.$postId.deep'
 import { Route as PathlessLayoutNestedLayoutRouteBImport } from './routes/_pathlessLayout/_nested-layout/route-b'
 import { Route as PathlessLayoutNestedLayoutRouteAImport } from './routes/_pathlessLayout/_nested-layout/route-a'
@@ -93,6 +96,24 @@ const PathlessLayoutNestedLayoutRoute = PathlessLayoutNestedLayoutImport.update(
     getParentRoute: () => PathlessLayoutRoute,
   } as any,
 )
+
+const RequestsLearnIndexRoute = RequestsLearnIndexImport.update({
+  id: '/requests/learn/',
+  path: '/requests/learn/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const RequestMentorIndexRoute = RequestMentorIndexImport.update({
+  id: '/request/mentor/',
+  path: '/request/mentor/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const RequestsLearnPostIdRoute = RequestsLearnPostIdImport.update({
+  id: '/requests/learn/$postId',
+  path: '/requests/learn/$postId',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const PostsPostIdDeepRoute = PostsPostIdDeepImport.update({
   id: '/posts_/$postId/deep',
@@ -216,6 +237,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PostsPostIdDeepImport
       parentRoute: typeof rootRoute
     }
+    '/requests/learn/$postId': {
+      id: '/requests/learn/$postId'
+      path: '/requests/learn/$postId'
+      fullPath: '/requests/learn/$postId'
+      preLoaderRoute: typeof RequestsLearnPostIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/request/mentor/': {
+      id: '/request/mentor/'
+      path: '/request/mentor'
+      fullPath: '/request/mentor'
+      preLoaderRoute: typeof RequestMentorIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/requests/learn/': {
+      id: '/requests/learn/'
+      path: '/requests/learn'
+      fullPath: '/requests/learn'
+      preLoaderRoute: typeof RequestsLearnIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -293,6 +335,9 @@ export interface FileRoutesByFullPath {
   '/route-a': typeof PathlessLayoutNestedLayoutRouteARoute
   '/route-b': typeof PathlessLayoutNestedLayoutRouteBRoute
   '/posts/$postId/deep': typeof PostsPostIdDeepRoute
+  '/requests/learn/$postId': typeof RequestsLearnPostIdRoute
+  '/request/mentor': typeof RequestMentorIndexRoute
+  '/requests/learn': typeof RequestsLearnIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -307,6 +352,9 @@ export interface FileRoutesByTo {
   '/route-a': typeof PathlessLayoutNestedLayoutRouteARoute
   '/route-b': typeof PathlessLayoutNestedLayoutRouteBRoute
   '/posts/$postId/deep': typeof PostsPostIdDeepRoute
+  '/requests/learn/$postId': typeof RequestsLearnPostIdRoute
+  '/request/mentor': typeof RequestMentorIndexRoute
+  '/requests/learn': typeof RequestsLearnIndexRoute
 }
 
 export interface FileRoutesById {
@@ -325,6 +373,9 @@ export interface FileRoutesById {
   '/_pathlessLayout/_nested-layout/route-a': typeof PathlessLayoutNestedLayoutRouteARoute
   '/_pathlessLayout/_nested-layout/route-b': typeof PathlessLayoutNestedLayoutRouteBRoute
   '/posts_/$postId/deep': typeof PostsPostIdDeepRoute
+  '/requests/learn/$postId': typeof RequestsLearnPostIdRoute
+  '/request/mentor/': typeof RequestMentorIndexRoute
+  '/requests/learn/': typeof RequestsLearnIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -343,6 +394,9 @@ export interface FileRouteTypes {
     | '/route-a'
     | '/route-b'
     | '/posts/$postId/deep'
+    | '/requests/learn/$postId'
+    | '/request/mentor'
+    | '/requests/learn'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -356,6 +410,9 @@ export interface FileRouteTypes {
     | '/route-a'
     | '/route-b'
     | '/posts/$postId/deep'
+    | '/requests/learn/$postId'
+    | '/request/mentor'
+    | '/requests/learn'
   id:
     | '__root__'
     | '/'
@@ -372,6 +429,9 @@ export interface FileRouteTypes {
     | '/_pathlessLayout/_nested-layout/route-a'
     | '/_pathlessLayout/_nested-layout/route-b'
     | '/posts_/$postId/deep'
+    | '/requests/learn/$postId'
+    | '/request/mentor/'
+    | '/requests/learn/'
   fileRoutesById: FileRoutesById
 }
 
@@ -383,6 +443,9 @@ export interface RootRouteChildren {
   DeferredRoute: typeof DeferredRoute
   RedirectRoute: typeof RedirectRoute
   PostsPostIdDeepRoute: typeof PostsPostIdDeepRoute
+  RequestsLearnPostIdRoute: typeof RequestsLearnPostIdRoute
+  RequestMentorIndexRoute: typeof RequestMentorIndexRoute
+  RequestsLearnIndexRoute: typeof RequestsLearnIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -393,6 +456,9 @@ const rootRouteChildren: RootRouteChildren = {
   DeferredRoute: DeferredRoute,
   RedirectRoute: RedirectRoute,
   PostsPostIdDeepRoute: PostsPostIdDeepRoute,
+  RequestsLearnPostIdRoute: RequestsLearnPostIdRoute,
+  RequestMentorIndexRoute: RequestMentorIndexRoute,
+  RequestsLearnIndexRoute: RequestsLearnIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -411,7 +477,10 @@ export const routeTree = rootRoute
         "/_pathlessLayout",
         "/deferred",
         "/redirect",
-        "/posts_/$postId/deep"
+        "/posts_/$postId/deep",
+        "/requests/learn/$postId",
+        "/request/mentor/",
+        "/requests/learn/"
       ]
     },
     "/": {
@@ -477,6 +546,15 @@ export const routeTree = rootRoute
     },
     "/posts_/$postId/deep": {
       "filePath": "posts_.$postId.deep.tsx"
+    },
+    "/requests/learn/$postId": {
+      "filePath": "requests.learn.$postId.tsx"
+    },
+    "/request/mentor/": {
+      "filePath": "request.mentor.index.tsx"
+    },
+    "/requests/learn/": {
+      "filePath": "requests.learn.index.tsx"
     }
   }
 }

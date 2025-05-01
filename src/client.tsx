@@ -1,8 +1,15 @@
 /// <reference types="vinxi/types/client" />
-import { hydrateRoot } from 'react-dom/client'
-import { StartClient } from '@tanstack/react-start'
-import { createRouter } from './router'
+import { hydrateRoot } from "react-dom/client";
+import { StartClient } from "@tanstack/react-start";
+import { createRouter } from "./router";
 
-const router = createRouter()
+if (import.meta.env.DEV) {
+  // Import and start Mirage in dev mode
+  import("./mirage/server").then(({ makeServer }) => {
+    makeServer();
+  });
+}
 
-hydrateRoot(document, <StartClient router={router} />)
+const router = createRouter();
+
+hydrateRoot(document, <StartClient router={router} />);
