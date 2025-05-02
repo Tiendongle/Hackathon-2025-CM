@@ -9,7 +9,11 @@ export default {
       fontFamily: {
         sans: ['"Inclusive Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
       },
-      colors: { boldBorder: "#2D3648", lightBolder: "#CBD2E0" },
+      colors: {
+        boldBorder: "#2D3648",
+        lightBolder: "#CBD2E0",
+        "theme-orange": "#FF4B33",
+      },
     },
   },
 };

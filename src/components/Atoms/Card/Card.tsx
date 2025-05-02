@@ -9,6 +9,7 @@ interface CardProps extends PropsWithChildren {
 export const variantList = {
   boldBorder: "border-2 rounded-lg border-boldBorder",
   lightBorder: "border-2 rounded-lg border-lightBorder",
+  noBorder: "rounded-2xl bg-white flex item-center p-4 justify-between",
 };
 
 const Card = ({ children, variant, className, ...rest }: CardProps) => {
