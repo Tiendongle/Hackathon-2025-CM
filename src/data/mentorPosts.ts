@@ -1,6 +1,6 @@
 import { type Post } from "~/types/mockDataTypes";
 
-export const posts: Post[] = [
+export const mentorPosts: Post[] = [
   {
     id: 1,
     type: {
@@ -14,6 +14,23 @@ export const posts: Post[] = [
       lastName: "Cho",
       userImage:
         "https://img.freepik.com/free-vector/woman-with-long-brown-hair-pink-shirt_90220-2940.jpg?t=st=1746082774~exp=1746086374~hmac=f8caa9641dc03adc432623bb64dd570bd3a2cfc501a58d2f092c0dde887bce2c&w=1380",
+      coursesTeach: [
+        {
+          course: {
+            id: 2,
+            category: {
+              id: 1,
+              name: "Physical & Outdoor Activities",
+              slug: "physical-and-outdoor-activities",
+            },
+            name: "Volleyball",
+            slug: "volleyball",
+          },
+          rating: 5.0,
+          participants: 102,
+          reviews: 61,
+        },
+      ],
     },
     hobby: {
       id: 2,
@@ -49,15 +66,27 @@ export const posts: Post[] = [
     reviews: [
       {
         id: 1,
-        owner: { id: 2, name: "Tien Le" },
-        rating: 5,
+        owner: {
+          id: 2,
+          name: "Tien Le",
+          userImage:
+            "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_1280.png",
+        },
+        rating: 5.0,
         text: "Easy to follow, friendly people. Highly recommend this and will come again",
+        date: "2025-05-01",
       },
       {
         id: 2,
-        owner: { id: 3, name: "Sophia Cho" },
-        rating: 4,
+        owner: {
+          id: 3,
+          name: "Sophia Cho",
+          userImage:
+            "https://img.freepik.com/free-vector/woman-with-long-brown-hair-pink-shirt_90220-2940.jpg?t=st=1746082774~exp=1746086374~hmac=f8caa9641dc03adc432623bb64dd570bd3a2cfc501a58d2f092c0dde887bce2c&w=1380",
+        },
+        rating: 4.0,
         text: "Lorem ipsum",
+        date: "2025-04-12",
       },
     ],
     images: [
@@ -69,8 +98,17 @@ export const posts: Post[] = [
     summary:
       "Struggling with your serve? I’m offering focused sessions to help you improve your overhand or jump serve.",
     details:
-      "Hey! I’ve spent the past 3 years playing competitive high school volleyball, and I’m now offering 1-on-1 coaching for anyone looking to improve their serve and overall game. If you're just getting into volleyball or want to boost your skills, I can help you:✅ Learn proper serving form (underhand/overhand)✅ Build consistency and accuracy✅ Understand game basics and positioning✅ Get more confident on the court",
+      "Hey! I’ve spent the past 3 years playing competitive high school volleyball, and I’m now offering 1-on-1 coaching for anyone looking to improve their serve and overall game. If you're just getting into volleyball or want to boost your skills, I can help you:\n\n✅ Learn proper serving form (underhand/overhand)\n✅ Build consistency and accuracy\n✅ Understand game basics and positioning\n✅ Get more confident on the court",
     price: 25,
+    skilLevel: { id: 4, name: "All levels" },
+    duration: "1 hour",
+    location: {
+      name: "Kerrisdale Community Centre",
+      address: "5851 West Blvd",
+      city: "Vancouver",
+      province: "BC",
+      postalCode: "V6M 3W9",
+    },
   },
   {
     id: 2,
@@ -85,6 +123,23 @@ export const posts: Post[] = [
       lastName: "Furtun",
       userImage:
         "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_1280.png",
+      coursesTeach: [
+        {
+          course: {
+            id: 4,
+            category: {
+              id: 3,
+              name: "Performance & Music",
+              slug: "performance-and-music",
+            },
+            name: "Guitar",
+            slug: "guitar",
+          },
+          rating: 5.0,
+          participants: 102,
+          reviews: 61,
+        },
+      ],
     },
     hobby: {
       id: 4,
@@ -120,14 +175,24 @@ export const posts: Post[] = [
     reviews: [
       {
         id: 1,
-        owner: { id: 2, name: "Tien Le" },
-        rating: 5,
+        owner: {
+          id: 2,
+          name: "Tien Le",
+          userImage:
+            "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_1280.png",
+        },
+        rating: 5.0,
         text: "Easy to follow, friendly people. Highly recommend this and will come again",
       },
       {
         id: 2,
-        owner: { id: 3, name: "Sophia Cho" },
-        rating: 4,
+        owner: {
+          id: 1,
+          name: "Kutay Furtun",
+          userImage:
+            "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_1280.png",
+        },
+        rating: 4.0,
         text: "Lorem ipsum",
       },
     ],
@@ -141,6 +206,15 @@ export const posts: Post[] = [
       "Want to play guitar but not sure where to begin? I’m offering quick sessions to help you learn essential chords so you can start playing real...",
     details: "",
     price: 30,
+    skilLevel: { id: 1, name: "Beginner" },
+    duration: "30 mins",
+    location: {
+      name: "Kerrisdale Community Centre",
+      address: "5851 West Blvd",
+      city: "Vancouver",
+      province: "BC",
+      postalCode: "V6M 3W9",
+    },
   },
   // {
   //   id: 2,

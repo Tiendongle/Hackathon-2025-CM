@@ -1,6 +1,6 @@
 import { createServer, Model, Factory, Response } from "miragejs";
 
-import { users, posts } from "~/data";
+import { users, learnPosts } from "~/data";
 
 export function makeServer({ environment = "development" } = {}) {
   return createServer({
@@ -8,14 +8,14 @@ export function makeServer({ environment = "development" } = {}) {
 
     models: {
       user: Model,
-      post: Model,
+      learnPost: Model,
     },
 
     seeds(server) {
       // @ts-ignore
       users.forEach((user) => server.create("user", user));
       // @ts-ignore
-      posts.forEach((post) => server.create("post", post));
+      learnPosts.forEach((learnPost) => server.create("learnPost", learnPost));
     },
 
     routes() {
@@ -40,14 +40,14 @@ export function makeServer({ environment = "development" } = {}) {
 
       this.get("/requests/learn", (schema) => {
         // @ts-ignore
-        return schema.posts.all();
+        return schema.learnPosts.all();
       });
 
       this.get("/requests/learn/:postId", (schema, request) => {
         // @ts-ignore
         let id = request.params.postId;
         // @ts-ignore
-        let post = schema.posts.find(id);
+        let post = schema.learnPosts.find(id);
         if (!post) {
           return new Response(404, {}, { error: "User not found" });
         }

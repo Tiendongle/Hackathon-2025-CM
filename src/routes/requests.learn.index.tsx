@@ -10,14 +10,14 @@ export const Route = createFileRoute("/requests/learn/")({
 
 function RouteComponent() {
   const query = useQuery({
-    queryKey: ["posts"],
+    queryKey: ["learnPosts"],
     queryFn: () => fetchData({ apiName: "/requests/learn" }),
   });
 
-  const posts = query?.data?.posts;
+  const posts = query?.data?.learnPosts;
 
   return (
-    <div className="bg-gray">
+    <div className="bg-gray-100">
       {posts?.map((post: Post) => <RequestCard post={post} />)}
     </div>
   );

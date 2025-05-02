@@ -28,9 +28,11 @@ export interface Review {
   owner: {
     id: number;
     name: string;
+    userImage: string;
   };
   rating: number;
   text: string;
+  date?: string;
 }
 
 export interface Post {
@@ -54,6 +56,9 @@ export interface Post {
   summary: string;
   details: string;
   price: number;
+  duration: string;
+  skilLevel: SkilLevel;
+  location: Location;
 }
 
 export interface SkilLevel {
@@ -66,9 +71,6 @@ export interface CourseTeach {
   rating: number;
   participants: number;
   reviews: number;
-  price: number;
-  meetingType: string;
-  skilLevel: string;
 }
 
 export interface User {
@@ -78,4 +80,12 @@ export interface User {
   lastName: string;
   userImage: string;
   coursesTeach?: CourseTeach[];
+}
+
+export interface Location {
+  name: string;
+  address: string;
+  city: string;
+  province: string;
+  postalCode: string;
 }

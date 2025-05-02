@@ -4,6 +4,7 @@ import { Header, Paragraph } from "~/components/Atoms/Typography";
 import { type Post } from "~/types/mockDataTypes";
 import { Link } from "~/components/Atoms/Link";
 import Slider from "~/components/Atoms/Slider/Slider";
+import Divider from "~/components/Atoms/Divider";
 
 interface RequestCardProps {
   post: Post;
@@ -30,7 +31,7 @@ const RequestCard = ({ post }: RequestCardProps) => {
         ))}
       </Slider>
       <Link
-        className="w-80 m-auto flex gap-4 flex-col mb-6"
+        className="w-11/12 m-auto flex gap-4 flex-col mb-6"
         to={`/requests/learn/${post.id}`}
       >
         <div className="flex justify-between items-baseline  text-gray-900">
@@ -47,9 +48,9 @@ const RequestCard = ({ post }: RequestCardProps) => {
         >
           {post.summary}
         </Paragraph>
-        <div className="border-gray-200 border-b w-80 m-auto"></div>
+        <Divider className="" />
         <div className="flex gap-1 text-xs items-center">
-          <Image src={post.user.userImage} className="w-4 h-4" />
+          <Image src={post.user.userImage} className="w-4 h-4 rounded-full" />
           <span className="text-gray-900 font-semibold">{`${post.user.firstName} ${post.user.lastName[0]}`}</span>
           <span className="text-gray-400 font-normal">
             {`• Available ${availableDays}`}
