@@ -16,7 +16,10 @@ interface BottomNavItemProps {
   route: string;
   icon: IconName;
 }
-type BottomNavDataProps = (GroupedBottomNavItemProps | BottomNavItemProps)[];
+export type BottomNavDataProps = (
+  | GroupedBottomNavItemProps
+  | BottomNavItemProps
+)[];
 const MockElements: BottomNavDataProps = [
   { name: "Home", route: "/", icon: "home" },
   {
