@@ -44,7 +44,7 @@ const RequestCardDetails = ({ post }: RequestCardDetailsProps) => {
       detail: (
         <div className="flex justify-center items-center text-accent">
           {`${courseDetails?.rating?.toFixed(1)}`}
-          <Icon iconName="star-md" />
+          <Icon iconName="star" className="w-4" />
         </div>
       ),
       title: "Rating",
@@ -59,9 +59,7 @@ const RequestCardDetails = ({ post }: RequestCardDetailsProps) => {
   const ratingStarsDisplay = (starCount: number) => {
     const starArr = [];
     for (let i = 1; i <= starCount; i++) {
-      starArr.push(
-        <Icon iconName="star-md" className="text-accent w-3 h-3 " />
-      );
+      starArr.push(<Icon iconName="star" className="text-accent w-3 h-3 " />);
     }
 
     return starArr.map((star) => star);

@@ -26,9 +26,9 @@ export const Default: Story = {
       <div className="flex flex-col  justify-center items-center py-5 w-52 aspect-square">
         <Icon className="w-full h-full" {...arg} />
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex flex-wrap justify-center items-center">
         {Object.keys(iconMap).map((type) => (
-          <span className="flex flex-col items-center px-2">
+          <span className="flex flex-col items-center p-2">
             <Icon iconName={type as IconName} />
             <p>{type}</p>
           </span>
