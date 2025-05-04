@@ -86,9 +86,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="max-w-[414px] mx-auto bg-neutral-100">
         {children}
-        <footer className="w-full px-2 bg-white text-black">
+        <footer className="sticky bottom-0 w-full px-2 bg-white text-black z-10">
           <BottomNav elements={bottomAppBar} />
         </footer>
         {/* <TanStackRouterDevtools position="bottom-right" /> */}

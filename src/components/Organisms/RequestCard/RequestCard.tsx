@@ -20,7 +20,7 @@ const RequestCard = ({ post }: RequestCardProps) => {
 
   return (
     <Card
-      className="border-white bg-white border-0 rounded-2xl w-11/12 m-auto overflow-hidden mb-4"
+      className="border-white bg-white border-0 rounded-2xl px-6 m-auto overflow-hidden mb-4"
       key={post.id}
     >
       <Slider className="mb-6">
@@ -31,7 +31,7 @@ const RequestCard = ({ post }: RequestCardProps) => {
         ))}
       </Slider>
       <Link
-        className="w-11/12 m-auto flex gap-4 flex-col mb-6"
+        className="px-6 m-auto mb-6 flex gap-4 flex-col"
         to={`/requests/learn/${post.id}`}
       >
         <div className="flex justify-between items-baseline  text-gray-900">

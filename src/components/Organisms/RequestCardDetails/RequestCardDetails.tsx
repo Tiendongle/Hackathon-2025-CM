@@ -66,12 +66,12 @@ const RequestCardDetails = ({ post }: RequestCardDetailsProps) => {
   };
 
   return (
-    <div className="w-full">
-      <div className="flex justify-between w-11/12 m-auto">
+    <div className="w-full bg-neutral-50">
+      <div className="sticky top-0 flex justify-between w-full px-6 py-1.5 bg-white m-auto z-50">
         <button onClick={onBackButtonClick}>
           <Icon iconName="left-arrow" />
         </button>
-        <div>
+        <div className="flex justify-center">
           <button onClick={() => console.log("shared")}>
             <Icon iconName="share" />
           </button>
@@ -87,7 +87,7 @@ const RequestCardDetails = ({ post }: RequestCardDetailsProps) => {
           </div>
         ))}
       </Slider>
-      <div className="w-11/12 m-auto flex gap-6 flex-col">
+      <div className="px-6 m-auto flex gap-6 flex-col">
         <div className="flex">
           <Image src={post.user.userImage} className="w-9 h-9 rounded-full" />
           <div className="flex flex-col ml-4">
