@@ -1,12 +1,13 @@
-import { iconMap, IconName } from "./iconMap";
+import { iconMap, hobbiesIcon, HobbyIconName, IconName } from "./iconMap";
 
 interface IconProps {
-  iconName: IconName;
+  iconName: IconName | HobbyIconName;
   className?: string;
 }
 
 const SvgIcon: React.FC<IconProps> = ({ iconName, className }) => {
-  const IconComponent = iconMap[iconName];
+  if (!iconName) return;
+  const IconComponent = { ...iconMap, ...hobbiesIcon }[iconName];
 
   if (!IconComponent) throw new Error(`${iconName} does not exist!`);
 

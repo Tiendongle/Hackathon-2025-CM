@@ -33,7 +33,7 @@ const MockElements: BottomNavDataProps = [
 
 const BottomNav = ({ elements = MockElements, ...rest }: BottomNavProps) => {
   return (
-    <div className="w-full max-w-[400px] mx-auto  flex justify-between h-50 bg-white py-4">
+    <div className="w-full max-w-[400px] mx-auto  flex justify-between bg-white py-4">
       <BottomNavItems elements={elements} />
     </div>
   );

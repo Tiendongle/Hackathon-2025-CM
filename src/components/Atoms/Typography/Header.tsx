@@ -4,7 +4,7 @@ import { HTMLAttributes, PropsWithChildren } from "react";
 interface HeaderProps
   extends PropsWithChildren<HTMLAttributes<HTMLHeadingElement>> {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  className: string;
+  className?: string;
 }
 
 const defaultClassnames = {

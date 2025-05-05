@@ -82,7 +82,7 @@ const RequestCardDetails = ({ post }: RequestCardDetailsProps) => {
       </div>
       <Slider className="mb-8">
         {post.images.map((img) => (
-          <div className="w-full h-52 overflow-hidden">
+          <div className="w-full h-60 overflow-hidden">
             <Image src={img} className="w-full h-full object-cover" />
           </div>
         ))}
@@ -136,7 +136,7 @@ const RequestCardDetails = ({ post }: RequestCardDetailsProps) => {
           title="Here's what people are saying"
           iconName="review"
         />
-        <div className="flex gap-3 flex-nowrap overflow-x-auto ">
+        <div className="flex gap-3 flex-nowrap overflow-x-auto">
           {post.reviews.map((review) => {
             return (
               <Card

@@ -43,7 +43,6 @@ const TabPanelInner = ({ data }: TabPanelProps) => {
   return (
     <>
       <TabPanelNav items={data} />
-
       {currentData && <div>{currentData.map((item) => item?.title)}</div>}
     </>
   );

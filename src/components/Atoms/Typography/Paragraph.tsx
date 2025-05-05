@@ -3,7 +3,7 @@ import { HTMLAttributes, PropsWithChildren } from "react";
 
 interface ParagraphProps
   extends PropsWithChildren<HTMLAttributes<HTMLParagraphElement>> {
-  variant: keyof typeof variantList;
+  variant?: keyof typeof variantList;
 }
 
 const variantList = {
@@ -14,7 +14,7 @@ const variantList = {
 
 const Paragraph = ({
   children,
-  variant,
+  variant = "default",
   className,
   ...rest
 }: ParagraphProps) => {

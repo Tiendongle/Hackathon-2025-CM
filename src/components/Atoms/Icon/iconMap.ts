@@ -46,7 +46,38 @@ import SearchIcon from "./icons/search.svg?react";
 import ShareIcon from "./icons/share.svg?react";
 import StarsIcon from "./icons/stars.svg?react";
 import TimeIcon from "./icons/time.svg?react";
-// import Icon from "./icons/.svg?react"
+
+// Import Hobbies
+import HobbyAllIcon from "./icons/hobbies/all.svg?react";
+import HobbyArcheryIcon from "./icons/hobbies/archery.svg?react";
+import HobbyBaseballIcon from "./icons/hobbies/baseball.svg?react";
+import HobbyBasketballIcon from "./icons/hobbies/basketball.svg?react";
+import HobbyCollectionsIcon from "./icons/hobbies/collections.svg?react";
+import HobbyCookingIcon from "./icons/hobbies/cooking.svg?react";
+import HobbyCraftsIcon from "./icons/hobbies/crafts.svg?react";
+import HobbyCreativeIcon from "./icons/hobbies/creative.svg?react";
+import HobbyCycleIcon from "./icons/hobbies/cycle.svg?react";
+import HobbyFishingIcon from "./icons/hobbies/fishing.svg?react";
+import HobbyFoodIcon from "./icons/hobbies/food.svg?react";
+import HobbyFootballIcon from "./icons/hobbies/football.svg?react";
+import HobbyGolfIcon from "./icons/hobbies/golf.svg?react";
+import HobbyMartialArtsIcon from "./icons/hobbies/martial-arts.svg?react";
+import HobbyMusicIcon from "./icons/hobbies/music.svg?react";
+import HobbyPaintingIcon from "./icons/hobbies/painting.svg?react";
+import HobbyPhotographyIcon from "./icons/hobbies/photography.svg?react";
+import HobbyRunningIcon from "./icons/hobbies/running.svg?react";
+import HobbySailingIcon from "./icons/hobbies/sailing.svg?react";
+import HobbySkateboardingIcon from "./icons/hobbies/skateboarding.svg?react";
+import HobbySkatingIcon from "./icons/hobbies/skating.svg?react";
+import HobbySnowboardIcon from "./icons/hobbies/snowboard.svg?react";
+import HobbySoccerIcon from "./icons/hobbies/soccer.svg?react";
+import HobbySurfingIcon from "./icons/hobbies/surfing.svg?react";
+import HobbySwimmingIcon from "./icons/hobbies/swimming.svg?react";
+import HobbyTennisIcon from "./icons/hobbies/tennis.svg?react";
+import HobbyVolleyballIcon from "./icons/hobbies/volleyball.svg?react";
+import HobbyWeightliftingIcon from "./icons/hobbies/weightlifting.svg?react";
+import HobbyWellnessIcon from "./icons/hobbies/wellness.svg?react";
+import HobbyYogaIcon from "./icons/hobbies/yoga.svg?react";
 
 const iconMap = {
   "face-man-profile": FaceManProfileIcon,
@@ -98,6 +129,73 @@ const iconMap = {
   time: TimeIcon,
 } as const;
 
+const hobbiesIcon = {
+  all: HobbyAllIcon,
+  archery: HobbyArcheryIcon,
+  baseball: HobbyBaseballIcon,
+  basketball: HobbyBasketballIcon,
+  collections: HobbyCollectionsIcon,
+  cooking: HobbyCookingIcon,
+  crafts: HobbyCraftsIcon,
+  creative: HobbyCreativeIcon,
+  cycle: HobbyCycleIcon,
+  fishing: HobbyFishingIcon,
+  food: HobbyFoodIcon,
+  football: HobbyFootballIcon,
+  golf: HobbyGolfIcon,
+  "martial-arts": HobbyMartialArtsIcon,
+  music: HobbyMusicIcon,
+  painting: HobbyPaintingIcon,
+  photography: HobbyPhotographyIcon,
+  running: HobbyRunningIcon,
+  sailing: HobbySailingIcon,
+  skateboarding: HobbySkateboardingIcon,
+  skating: HobbySkatingIcon,
+  snowboard: HobbySnowboardIcon,
+  soccer: HobbySoccerIcon,
+  surfing: HobbySurfingIcon,
+  swimming: HobbySwimmingIcon,
+  tennis: HobbyTennisIcon,
+  volleyball: HobbyVolleyballIcon,
+  weightlifting: HobbyWeightliftingIcon,
+  wellness: HobbyWellnessIcon,
+  yoga: HobbyYogaIcon,
+};
+
+export const HobbiesList = {
+  all: "All",
+  archery: "Archery",
+  baseball: "Baseball",
+  basketball: "Basketball",
+  collections: "Collections",
+  cooking: "Cooking",
+  crafts: "Crafts",
+  creative: "Creative",
+  cycle: "Cycle",
+  fishing: "Fishing",
+  food: "Food",
+  football: "Football",
+  golf: "Golf",
+  "martial-arts": "Martial Arts",
+  music: "Music",
+  painting: "Painting",
+  photography: "Photography",
+  running: "Running",
+  sailing: "Sailing",
+  skateboarding: "Skateboarding",
+  skating: "Skating",
+  snowboard: "Snowboard",
+  soccer: "Soccer",
+  surfing: "Surfing",
+  swimming: "Swimming",
+  tennis: "Tennis",
+  volleyball: "Volleyball",
+  weightlifting: "Weightlifting",
+  wellness: "Wellness",
+  yoga: "Yoga",
+};
+
+export type HobbyIconName = keyof typeof hobbiesIcon;
 export type IconName = keyof typeof iconMap;
 
-export { iconMap };
+export { iconMap, hobbiesIcon };

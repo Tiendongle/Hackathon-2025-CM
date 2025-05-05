@@ -1,2 +1,3 @@
 export { default } from "./Icon";
-export { type IconName } from "./iconMap";
+export { iconMap, hobbiesIcon } from "./iconMap";
+export { type IconName, type HobbyIconName } from "./iconMap";
