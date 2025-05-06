@@ -100,7 +100,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="max-w-[414px] mx-auto bg-neutral-100">
+      <body className="max-w-[550px] mx-auto bg-neutral-100">
         {headerDetails && <GlobalHeader headerDetails={headerDetails} />}
         {children}
         <footer className="sticky bottom-0 w-full px-2 bg-white text-black z-10">
