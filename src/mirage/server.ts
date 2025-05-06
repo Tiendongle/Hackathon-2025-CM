@@ -1,6 +1,6 @@
 import { createServer, Model, Factory, Response } from "miragejs";
 
-import { users, learnPosts } from "~/data";
+import { users, learnPosts, mentorPosts } from "~/data";
 
 export function makeServer({ environment = "development" } = {}) {
   return createServer({
@@ -9,6 +9,7 @@ export function makeServer({ environment = "development" } = {}) {
     models: {
       user: Model,
       learnPost: Model,
+      mentorPost: Model,
     },
 
     seeds(server) {
@@ -16,6 +17,9 @@ export function makeServer({ environment = "development" } = {}) {
       users.forEach((user) => server.create("user", user));
       // @ts-ignore
       learnPosts.forEach((learnPost) => server.create("learnPost", learnPost));
+      mentorPosts.forEach((mentorPost) =>
+        server.create("mentorPost", mentorPost)
+      );
     },
 
     routes() {
@@ -42,12 +46,28 @@ export function makeServer({ environment = "development" } = {}) {
         // @ts-ignore
         return schema.learnPosts.all();
       });
+      this.get("/requests/mentor", (schema) => {
+        // @ts-ignore
+        return schema.mentorPosts.all();
+      });
 
       this.get("/requests/learn/:postId", (schema, request) => {
         // @ts-ignore
         let id = request.params.postId;
         // @ts-ignore
         let post = schema.learnPosts.find(id);
+        if (!post) {
+          return new Response(404, {}, { error: "User not found" });
+        }
+
+        return post;
+      });
+
+      this.get("/requests/mentor/:postId", (schema, request) => {
+        // @ts-ignore
+        let id = request.params.postId;
+        // @ts-ignore
+        let post = schema.mentorPosts.find(id);
         if (!post) {
           return new Response(404, {}, { error: "User not found" });
         }

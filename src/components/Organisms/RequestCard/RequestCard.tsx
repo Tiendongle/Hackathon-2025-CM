@@ -8,9 +8,10 @@ import Divider from "~/components/Atoms/Divider";
 
 interface RequestCardProps {
   post: Post;
+  type?: "learn" | "mentor";
 }
 
-const RequestCard = ({ post }: RequestCardProps) => {
+const RequestCard = ({ post, type = "learn" }: RequestCardProps) => {
   // TODO: Add proper loading components here
   if (!post) return <div>Loading...</div>;
 
@@ -32,7 +33,7 @@ const RequestCard = ({ post }: RequestCardProps) => {
       </Slider>
       <Link
         className="px-6 m-auto mb-6 flex gap-4 flex-col"
-        to={`/requests/learn/${post.id}`}
+        to={`/requests/${type}/${post.id}`}
       >
         <div className="flex justify-between items-baseline  text-gray-900">
           <Header as="h1" className="text-2xl w-2/3">

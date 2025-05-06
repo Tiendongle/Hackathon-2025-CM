@@ -10,7 +10,7 @@ interface GlobalHeaderProps {
 const GlobalHeader = ({ headerDetails }: GlobalHeaderProps) => {
   const { header } = headerDetails;
   return (
-    <header className="py-4  bg-white">
+    <header className="sticky top-0 py-4 bg-white mb-4 z-10">
       <div className="w-11/12 m-auto flex justify-between">
         <div>
           <Icon iconName="profile" />

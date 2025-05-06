@@ -9,9 +9,15 @@ interface LinkProps {
   };
 }
 
-const BaseLink = ({ to, className, children, activeProps }: LinkProps) => (
+const BaseLink = ({
+  to,
+  className,
+  children,
+  activeProps,
+  ...rest
+}: LinkProps) => (
   // TODO: add internal/external link
-  <Link to={to} className={className} activeProps={activeProps}>
+  <Link to={to} className={className} activeProps={activeProps} {...rest}>
     {children}
   </Link>
 );

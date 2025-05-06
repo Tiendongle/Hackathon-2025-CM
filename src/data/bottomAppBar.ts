@@ -1,12 +1,12 @@
 import { BottomNavDataProps } from "~/components/Elements/BottomNav/BottomNav";
 
 export const bottomAppBar: BottomNavDataProps = [
-  { name: "Home", route: "/", icon: "home" },
+  { name: "home", route: "/", icon: "home" },
   {
     group: [
-      { name: "Learn", route: "/requests/learn", icon: "request" },
-      { name: "Mentor", route: "/requests/mentor", icon: "classes" },
+      { name: "learn", route: "/requests/learn", icon: "learn" },
+      { name: "mentor", route: "/requests/mentor", icon: "mentor" },
     ],
   },
-  { name: "Messages", route: "/messages", icon: "inbox" },
+  { name: "inbox", route: "", icon: "inbox" },
 ];

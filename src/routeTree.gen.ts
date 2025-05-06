@@ -24,8 +24,9 @@ import { Route as PostsPostIdImport } from './routes/posts.$postId'
 import { Route as CreateMentorImport } from './routes/create.mentor'
 import { Route as CreateLearnImport } from './routes/create.learn'
 import { Route as PathlessLayoutNestedLayoutImport } from './routes/_pathlessLayout/_nested-layout'
+import { Route as RequestsMentorIndexImport } from './routes/requests.mentor.index'
 import { Route as RequestsLearnIndexImport } from './routes/requests.learn.index'
-import { Route as RequestMentorIndexImport } from './routes/request.mentor.index'
+import { Route as RequestsMentorPostIdImport } from './routes/requests.mentor.$postId'
 import { Route as RequestsLearnPostIdImport } from './routes/requests.learn.$postId'
 import { Route as PostsPostIdDeepImport } from './routes/posts_.$postId.deep'
 import { Route as PathlessLayoutNestedLayoutRouteBImport } from './routes/_pathlessLayout/_nested-layout/route-b'
@@ -111,15 +112,21 @@ const PathlessLayoutNestedLayoutRoute = PathlessLayoutNestedLayoutImport.update(
   } as any,
 )
 
+const RequestsMentorIndexRoute = RequestsMentorIndexImport.update({
+  id: '/requests/mentor/',
+  path: '/requests/mentor/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const RequestsLearnIndexRoute = RequestsLearnIndexImport.update({
   id: '/requests/learn/',
   path: '/requests/learn/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const RequestMentorIndexRoute = RequestMentorIndexImport.update({
-  id: '/request/mentor/',
-  path: '/request/mentor/',
+const RequestsMentorPostIdRoute = RequestsMentorPostIdImport.update({
+  id: '/requests/mentor/$postId',
+  path: '/requests/mentor/$postId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -272,11 +279,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RequestsLearnPostIdImport
       parentRoute: typeof rootRoute
     }
-    '/request/mentor/': {
-      id: '/request/mentor/'
-      path: '/request/mentor'
-      fullPath: '/request/mentor'
-      preLoaderRoute: typeof RequestMentorIndexImport
+    '/requests/mentor/$postId': {
+      id: '/requests/mentor/$postId'
+      path: '/requests/mentor/$postId'
+      fullPath: '/requests/mentor/$postId'
+      preLoaderRoute: typeof RequestsMentorPostIdImport
       parentRoute: typeof rootRoute
     }
     '/requests/learn/': {
@@ -284,6 +291,13 @@ declare module '@tanstack/react-router' {
       path: '/requests/learn'
       fullPath: '/requests/learn'
       preLoaderRoute: typeof RequestsLearnIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/requests/mentor/': {
+      id: '/requests/mentor/'
+      path: '/requests/mentor'
+      fullPath: '/requests/mentor'
+      preLoaderRoute: typeof RequestsMentorIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -366,8 +380,9 @@ export interface FileRoutesByFullPath {
   '/route-b': typeof PathlessLayoutNestedLayoutRouteBRoute
   '/posts/$postId/deep': typeof PostsPostIdDeepRoute
   '/requests/learn/$postId': typeof RequestsLearnPostIdRoute
-  '/request/mentor': typeof RequestMentorIndexRoute
+  '/requests/mentor/$postId': typeof RequestsMentorPostIdRoute
   '/requests/learn': typeof RequestsLearnIndexRoute
+  '/requests/mentor': typeof RequestsMentorIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -385,8 +400,9 @@ export interface FileRoutesByTo {
   '/route-b': typeof PathlessLayoutNestedLayoutRouteBRoute
   '/posts/$postId/deep': typeof PostsPostIdDeepRoute
   '/requests/learn/$postId': typeof RequestsLearnPostIdRoute
-  '/request/mentor': typeof RequestMentorIndexRoute
+  '/requests/mentor/$postId': typeof RequestsMentorPostIdRoute
   '/requests/learn': typeof RequestsLearnIndexRoute
+  '/requests/mentor': typeof RequestsMentorIndexRoute
 }
 
 export interface FileRoutesById {
@@ -408,8 +424,9 @@ export interface FileRoutesById {
   '/_pathlessLayout/_nested-layout/route-b': typeof PathlessLayoutNestedLayoutRouteBRoute
   '/posts_/$postId/deep': typeof PostsPostIdDeepRoute
   '/requests/learn/$postId': typeof RequestsLearnPostIdRoute
-  '/request/mentor/': typeof RequestMentorIndexRoute
+  '/requests/mentor/$postId': typeof RequestsMentorPostIdRoute
   '/requests/learn/': typeof RequestsLearnIndexRoute
+  '/requests/mentor/': typeof RequestsMentorIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -431,8 +448,9 @@ export interface FileRouteTypes {
     | '/route-b'
     | '/posts/$postId/deep'
     | '/requests/learn/$postId'
-    | '/request/mentor'
+    | '/requests/mentor/$postId'
     | '/requests/learn'
+    | '/requests/mentor'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -449,8 +467,9 @@ export interface FileRouteTypes {
     | '/route-b'
     | '/posts/$postId/deep'
     | '/requests/learn/$postId'
-    | '/request/mentor'
+    | '/requests/mentor/$postId'
     | '/requests/learn'
+    | '/requests/mentor'
   id:
     | '__root__'
     | '/'
@@ -470,8 +489,9 @@ export interface FileRouteTypes {
     | '/_pathlessLayout/_nested-layout/route-b'
     | '/posts_/$postId/deep'
     | '/requests/learn/$postId'
-    | '/request/mentor/'
+    | '/requests/mentor/$postId'
     | '/requests/learn/'
+    | '/requests/mentor/'
   fileRoutesById: FileRoutesById
 }
 
@@ -486,8 +506,9 @@ export interface RootRouteChildren {
   CreateMentorRoute: typeof CreateMentorRoute
   PostsPostIdDeepRoute: typeof PostsPostIdDeepRoute
   RequestsLearnPostIdRoute: typeof RequestsLearnPostIdRoute
-  RequestMentorIndexRoute: typeof RequestMentorIndexRoute
+  RequestsMentorPostIdRoute: typeof RequestsMentorPostIdRoute
   RequestsLearnIndexRoute: typeof RequestsLearnIndexRoute
+  RequestsMentorIndexRoute: typeof RequestsMentorIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -501,8 +522,9 @@ const rootRouteChildren: RootRouteChildren = {
   CreateMentorRoute: CreateMentorRoute,
   PostsPostIdDeepRoute: PostsPostIdDeepRoute,
   RequestsLearnPostIdRoute: RequestsLearnPostIdRoute,
-  RequestMentorIndexRoute: RequestMentorIndexRoute,
+  RequestsMentorPostIdRoute: RequestsMentorPostIdRoute,
   RequestsLearnIndexRoute: RequestsLearnIndexRoute,
+  RequestsMentorIndexRoute: RequestsMentorIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -525,8 +547,9 @@ export const routeTree = rootRoute
         "/create/mentor",
         "/posts_/$postId/deep",
         "/requests/learn/$postId",
-        "/request/mentor/",
-        "/requests/learn/"
+        "/requests/mentor/$postId",
+        "/requests/learn/",
+        "/requests/mentor/"
       ]
     },
     "/": {
@@ -602,11 +625,14 @@ export const routeTree = rootRoute
     "/requests/learn/$postId": {
       "filePath": "requests.learn.$postId.tsx"
     },
-    "/request/mentor/": {
-      "filePath": "request.mentor.index.tsx"
+    "/requests/mentor/$postId": {
+      "filePath": "requests.mentor.$postId.tsx"
     },
     "/requests/learn/": {
       "filePath": "requests.learn.index.tsx"
+    },
+    "/requests/mentor/": {
+      "filePath": "requests.mentor.index.tsx"
     }
   }
 }

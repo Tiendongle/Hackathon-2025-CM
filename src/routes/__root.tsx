@@ -84,7 +84,7 @@ function RootComponent() {
 const pathsWithHeader = [
   { pathName: "/", header: "Home" },
   { pathName: "/requests/learn", header: "Requests" },
-  { pathName: "requests/mentor", header: "Requests" },
+  { pathName: "/requests/mentor", header: "Requests" },
 ];
 
 function RootDocument({ children }: { children: React.ReactNode }) {
@@ -99,7 +99,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="max-w-[550px] mx-auto bg-neutral-100">
+      <body className="max-w-[550px] mx-auto bg-neutral-100 min-h-screen flex flex-col [&>_div]:flex-grow">
         {headerDetails && <GlobalHeader headerDetails={headerDetails} />}
         {children}
         <footer className="sticky bottom-0 w-full px-2 bg-white text-black z-10">

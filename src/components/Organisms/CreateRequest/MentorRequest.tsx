@@ -1,3 +1,4 @@
+import { useRouter } from "@tanstack/react-router";
 import { BaseInput, BaseTextArea } from "~/components/Atoms/Form";
 import BaseDropdown from "~/components/Atoms/Form/BaseDropdown";
 import Icon from "~/components/Atoms/Icon";
@@ -8,6 +9,11 @@ import { TabPanelNav } from "~/components/Elements/TabPanelNav";
 import { TabPanelProvider } from "~/hooks/useTabPanel";
 
 const MentorRequest = () => {
+  const router = useRouter();
+  const onBack = () => {
+    router.history.back();
+    console.log("close");
+  };
   const CategoriesList = Object.keys(HobbiesList).map((key) => ({
     label: HobbiesList[key as HobbyIconName],
     value: key,
@@ -26,14 +32,14 @@ const MentorRequest = () => {
   return (
     <div className="w-full bg-neutral-50 px-5 text-sm">
       {/* Header */}
-      <div className="sticky top-0 flex justify-center w-full px-5 py-1.5 bg-white mx-auto mb-4 z-50">
+      <header className="sticky top-0 flex justify-center w-full px-5 py-4 bg-white mx-auto mb-4 z-50 text-base">
         <Header as="h2">Post a Request</Header>
         <div className="absolute right-0">
-          <button onClick={() => console.log("close")}>
+          <button onClick={onBack}>
             <Icon iconName="close" />
           </button>
         </div>
-      </div>
+      </header>
       {/* Buttons */}
       <TabPanelProvider>
         <TabPanelNav
