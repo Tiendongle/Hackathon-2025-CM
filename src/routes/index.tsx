@@ -119,7 +119,7 @@ function Home() {
   };
 
   return (
-    <div className="relative w-full m-auto">
+    <div className="relative w-full m-auto bg-white">
       <button
         onClick={onLearningButtonClick}
         className="absolute top-6 left-7 w-40 h-10 rounded-2xl z-10 opacity-0"
