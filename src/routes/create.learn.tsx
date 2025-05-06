@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "~/mirage/utils/fetchData";
-import { type Post } from "~/types/mockDataTypes";
-import RequestCard from "~/components/Organisms/RequestCard";
 import { LearnRequest } from "~/components/Organisms/CreateRequest";
 
 export const Route = createFileRoute("/create/learn")({
