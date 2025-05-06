@@ -20,7 +20,7 @@ const RequestCard = ({ post }: RequestCardProps) => {
 
   return (
     <Card
-      className="border-white bg-white border-0 rounded-2xl px-6 m-auto overflow-hidden mb-4"
+      className="border-white bg-white border-0 rounded-2xl m-auto overflow-hidden mb-4 w-11/12"
       key={post.id}
     >
       <Slider className="mb-6">

@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   createRootRoute,
+  useLocation,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
@@ -17,6 +18,7 @@ import { bottomAppBar } from "~/data";
 import { seo } from "~/utils/seo";
 
 import appCss from "~/styles/app.css?url";
+import GlobalHeader from "~/components/Organisms/GlobalHeader/GlobalHeader";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -80,13 +82,26 @@ function RootComponent() {
   );
 }
 
+const pathsWithHeader = [
+  { pathName: "/", header: "Home" },
+  { pathName: "/requests/learn", header: "Requests" },
+  { pathName: "requests/mentor", header: "Requests" },
+];
+
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const location = useLocation();
+  const pathname = location.pathname;
+  const headerDetails = pathsWithHeader.find(
+    (path) => path.pathName === pathname
+  );
+
   return (
     <html>
       <head>
         <HeadContent />
       </head>
       <body className="max-w-[414px] mx-auto bg-neutral-100">
+        {headerDetails && <GlobalHeader headerDetails={headerDetails} />}
         {children}
         <footer className="sticky bottom-0 w-full px-2 bg-white text-black z-10">
           <BottomNav elements={bottomAppBar} />
